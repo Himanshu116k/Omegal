@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import socket from "../../socket";
+import socket from "../../Socket";
 
 export default function Home() {
   const navigate = useNavigate();
