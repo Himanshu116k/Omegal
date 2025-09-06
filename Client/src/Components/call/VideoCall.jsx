@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import socket from "../../socket"; // Your socket client
+import socket from "../../Socket"; // Your socket client
 import useCallStore from "../../Store/useCallStore";
 
 const VideoCall = () => {
