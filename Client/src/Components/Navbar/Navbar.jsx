@@ -1,7 +1,11 @@
 import { Link } from "react-router";
+import useCallStore from "../../Store/useCallStore";
+import { toast } from "sonner";
 
 
 const Navbar = function(){
+    const {setUser} = useCallStore()
+    const {User} =useCallStore()
     return(
         <>
         {/* <div className="bg-blue-600/35 flex justify-around p-5 gap-19 realative top-0 ">
@@ -22,17 +26,29 @@ className="mt-3 flex items-center justify-between rounded-2xl border border-whit
 <div className="text-white text-lg font-semibold tracking-tight">Omegal</div>
 
 
-<ul className="hidden md:flex items-center gap-6 text-white/90 text-sm">
-{/* <li className="hover:text-white cursor-pointer">Store</li>
-<li className="hover:text-white cursor-pointer">Accessories</li>
+<ul className="hidden md:flex items-center justify-center gap-6 text-white/90 text-sm">
+{User?(<a href="https://github.com/Himanshu116k/Omegal" className="hover:text-white cursor-pointer">See code in Github</a>):("")}
+
+{/* <li className="hover:text-white cursor-pointer">Accessories</li>
 <li className="hover:text-white cursor-pointer">Support</li> */}
 </ul>
 
-
+ {User?(
+    <div className="flex gap-4  justify-end">
+        <button onClick={()=>{setUser(null);toast.success("Logut successfully")}} className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-red-600/10 hover:bg-red-600 hover:scale-x-125 transition">
+        Logut
+      </button>
+      
+      <img className="h-[8%] w-[8%] hover:scale-75 transition-all " src="https://cdn-icons-png.freepik.com/512/9774/9774938.png?ga=GA1.1.1866649443.1757143166" alt="" />
+      
+    </div>
+ ):(
 <div className="flex items-center gap-3">
+
 <Link className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-white/10 hover:bg-white/20 transition"    to='/login'>Login</Link>
 <Link className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-white/10 hover:bg-white/20 transition"  to='/signup'>Sign Up</Link>
 </div>
+)}
 </nav>
 </div>
 

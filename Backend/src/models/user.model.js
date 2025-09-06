@@ -14,11 +14,6 @@ const user = mongoose.Schema(
       required: true,
       trim: true,
     },
-    gender: {
-      type: String,
-      required: true,
-      enum: ["Male", "Female", "Others"],
-    },
     password: {
       type: String,
       required: true,

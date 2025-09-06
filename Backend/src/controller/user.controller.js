@@ -45,7 +45,7 @@ const registerUser = async function (req, res) {
     //     throw new ApiError(400,"All feilds are required")
     // }
     const isAlreadyExist = await User.findOne({ email });
-    if (isAlreadyExist) throw new ApiError(409, "User already exit");
+    if (isAlreadyExist) return res.status(409).json(new ApiError(409, "User already exit"));
   
     const user = await User.create({ name, email, password, gender, age });
     if (!user) throw new ApiError(500, "Unable to create user");
@@ -99,16 +99,16 @@ const login = async (req, res,next) => {
     // 2. Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
-      return (new ApiError(404, "User not found in database"));
+      return  res.status(404).json(new ApiError(404, "User not found in database"));
     }
 
     // 3. Verify password
     const isPasswordValid = await user.isPasswordCorrect(password);
     if (!isPasswordValid) {
-      throw new ApiError(401, "Invalid password");
+      return  res.status(401).json(new ApiError(401, "Invalid password"));
     }
-    if(user.isVerified===false) throw new ApiError(401,"please verify your   email first")
-     console.log("get here")
+    if(user.isVerified===false) return res.status(403).json(new ApiError(403,"please verify your   email first"))
+     
     // 4. Generate tokens
     const { refreshToken, accessToken } = generateRefreshTokenAndAccessToken(user);
 

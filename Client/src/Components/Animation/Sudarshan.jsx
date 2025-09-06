@@ -1,7 +1,8 @@
 import React from "react";
 
  function SudarshanChakra({
-  size = 480,
+    w=600,
+  size = 450,
   teeth = 48,
   speed = 10,
   className = "",
@@ -75,7 +76,7 @@ import React from "react";
       style={{
         minHeight: "100vh",
         background:
-          "radial-gradient(circle at 18% 18%, #041831 0%, #05040a 35%, #010102 100%)",
+          "black",
       }}
     >
       <style>{`
@@ -93,7 +94,7 @@ import React from "react";
 
       <svg
         viewBox="0 0 512 512"
-        width={size}
+        width={w}
         height={size}
         role="img"
         aria-label="Sudarshan Chakra - rotating"
