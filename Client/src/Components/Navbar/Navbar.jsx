@@ -47,6 +47,7 @@ className="mt-3 flex items-center justify-between rounded-2xl border border-whit
 
 <Link className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-white/10 hover:bg-white/20 transition"    to='/login'>Login</Link>
 <Link className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-white/10 hover:bg-white/20 transition"  to='/signup'>Sign Up</Link>
+<Link className="text-white text-sm rounded-xl px-4 py-2 border border-white/30 bg-white/10 hover:bg-white/20 transition"  to='/match-random-user'>Connect</Link>
 </div>
 )}
 </nav>
