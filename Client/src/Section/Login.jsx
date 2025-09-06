@@ -27,7 +27,8 @@ const Login = () => {
     try {
       const responce = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/login`,
-        data
+        data,
+        { withCredentials: true } 
       );
       setUser(responce.data.data.user);
       toast.success("Login successfull");

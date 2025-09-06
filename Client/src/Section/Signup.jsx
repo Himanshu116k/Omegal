@@ -22,7 +22,8 @@ const Signup = () => {
     try {
       const responce = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/register`,
-        data
+        data,
+        { withCredentials: true } 
       );
       toast.success("Please veriy your email");
 
